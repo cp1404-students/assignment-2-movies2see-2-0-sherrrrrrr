@@ -19,4 +19,4 @@ class Movie:
             self.watched = False
 
         def __str__(self):
-            return f"{self.title} ({self.year}) - {self.category} Watched: {self.watched}
+            return f"{self.title} ({self.year}) - {self.category} Watched: {self.watched}"
