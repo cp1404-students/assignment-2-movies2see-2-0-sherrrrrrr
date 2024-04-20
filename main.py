@@ -10,13 +10,17 @@ GitHub URL: https://github.com/cp1404-students/assignment-2-movies2see-2-0-sherr
 """
 # TODO: Create your main program in this file, using the Movies2SeeApp class
 
-from kivy.app import App
+#from kivy.app import App
+from moviecollection import MovieCollection
 
+def main():
+    file_name = 'movie.csv'
+    movie_collection = MovieCollection()
+    movie_collection.load_movies_from_csv(file_name)
 
-class Movies2SeeApp(App):
-    """..."""
-    pass
+    for movie in movie_collection.movies:
+        print(movie)
 
+if __name__ == "__main__":
+    main()
 
-if __name__ == '__main__':
-    Movies2SeeApp().run()
