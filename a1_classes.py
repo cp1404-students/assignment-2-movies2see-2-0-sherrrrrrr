@@ -1,4 +1,3 @@
-"""..."""
 # TODO: Copy your first assignment to this file, then update it to use Movie class
 
 from movie import Movie
@@ -11,12 +10,18 @@ WATCHED = "w"
 
 def main():
     print("Movies2See 1.0 - by Jiaxin Li")
-    file_name = 'movies.csv'
+    movie_collection = MovieCollection()
+    file_name = 'movie.csv'
     movies = load_movies(file_name)
     movies_sorted = []
     print(f"{len(movies)} movies loaded")
 
+    choice = ''
+
     while True:
+
+        choice != 'Q'
+
         print("Menu")
         print("D - Display movies")
         print("A - Add new movie")
@@ -26,12 +31,12 @@ def main():
         choice = input("~ ").lower()
 
         if choice == 'd':
-            movies_sorted = display_movies(movies)  # Store the sorted movies
+            movies_sorted = display_movies(movies)
         elif choice == 'a':
             add_movie(movies)
         elif choice == 'w':
-            if movies_sorted:  # Ensure movies_sorted is not empty
-                watch_movie(movies_sorted, movies)  # Pass the sorted movies
+            if movies_sorted:
+                watch_movie(movies_sorted, movies)
             else:
                 print("Please display movies first.")
         elif choice == 'q':
@@ -40,7 +45,7 @@ def main():
             print("Have a nice day :)")
             return True
         else:
-            print("Invalid menu choice")
+            print("Invalid choice")
 
     return False
 
@@ -100,10 +105,15 @@ def add_movie(movies):
         except ValueError:
             print("Invalid input; enter a valid number")
 
-    category = input("Category: ")
+    valid_categories = ["action", "comedy", "documentary", "drama", "fantasy", "thriller"]
+
+    category = input("Category: ").lower()
     while category.strip() == "":
-        print("Input cannot be blank")
+        print("Input can not be blank")
         category = input("Category: ")
+    while category not in valid_categories:
+        print("Invalid category. Please choose from: Action, Comedy, Documentary, Drama, Fantasy, Thriller")
+        category = input("Category: ").lower()
 
     movies.append([title, year, category, UNWATCHED])
     print(f"{title} ({category} from {year}) added to movie list")
@@ -118,7 +128,7 @@ def watch_movie(movies_sorted, movies_original):
         print("No more movies to watch!")
         return
 
-    print("Enter the number of a movie to mark as watched:")
+    print("Enter the number of a movie to mark as watched.\n> ")
     choice = input().strip()
 
     try:
