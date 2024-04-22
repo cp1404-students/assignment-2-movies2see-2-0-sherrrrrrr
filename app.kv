@@ -11,13 +11,13 @@ BoxLayout:
             size_hint_y: None
         Spinner:
             id: sort_choice
-            text: "year"  # 修改默认选项
+            text: "year"
             height: dp(50)
             size_hint_y: None
             values: ("title", "year", "category", "status")
             on_text: app.sort_choice(sort_choice.text)
         Label:
-            text: "Add New Movie"  # 修改文本
+            text: "Add New Movie"
             height: dp(45)
             size_hint_y: None
         Label:
