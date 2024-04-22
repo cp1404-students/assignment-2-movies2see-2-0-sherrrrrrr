@@ -1,2 +1,69 @@
 # TODO: Create your Kivy layout in the kv language here
 BoxLayout:
+    BoxLayout:
+    orientation: "horizontal"
+    BoxLayout:
+        orientation: "vertical"
+        size_hint_x: 1
+        Label:
+            text: "Sort by:"
+            height: dp(50)
+            size_hint_y: None
+        Spinner:
+            id: sort_choice
+            text: "year"  # 修改默认选项
+            height: dp(50)
+            size_hint_y: None
+            values: ("title", "year", "category", "status")
+            on_text: app.sort_choice(sort_choice.text)
+        Label:
+            text: "Add New Movie"  # 修改文本
+            height: dp(45)
+            size_hint_y: None
+        Label:
+            text: "Title:"
+            height: dp(45)
+            size_hint_y: None
+        TextInput:
+            id: input_title
+            height: dp(45)
+            size_hint_y: None
+        Label:
+            text: "Year:"
+            height: dp(45)
+            size_hint_y: None
+        TextInput:
+            id: input_year
+            height: dp(45)
+            size_hint_y: None
+        Label:
+            text: "Category:"
+            height: dp(45)
+            size_hint_y: None
+        TextInput:
+            id: input_category
+            height: dp(45)
+            size_hint_y: None
+        Button:
+            text: "Add Movie"
+            size_hint_y: 1
+            on_press: app.add_new_movie()
+        Button:
+            text: "Clear"
+            size_hint_y: 1
+            on_press: app.clear_input()
+    BoxLayout:
+        orientation: "vertical"
+        size_hint_x: 3
+        Label:
+            id: top_label
+            height: dp(50)
+            size_hint_y: None
+        BoxLayout:
+            id: using_movie_layout
+            orientation: "vertical"
+        Label:
+            id: bottom_label
+            height: dp(50)
+            size_hint_y: None
+            text: "Welcome to Movies2See:)"
