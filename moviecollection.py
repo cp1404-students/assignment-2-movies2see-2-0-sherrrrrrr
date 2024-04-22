@@ -1,6 +1,3 @@
-"""..."""
-
-
 # TODO: Create your MovieCollection class in this file
 
 import json
