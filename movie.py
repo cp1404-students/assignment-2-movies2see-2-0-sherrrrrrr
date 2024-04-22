@@ -1,6 +1,3 @@
-"""..."""
-
-
 # TODO: Create your Movie class in this file
 
 
@@ -18,17 +15,4 @@ class Movie:
         self.watched = False
 
     def __str__(self):
-        return f"{self.title} ({self.year}) - {self.category} Watched: {self.watched}"
-
-class MovieCollection:
-    def __init__(self):
-        self.movies = []
-
-    def add_movie(self, movie):
-        self.movies.append(movie)
-
-    def get_number_of_unwatched_movies(self):
-        return sum(1 for movie in self.movies if not movie.watched)
-
-    def get_number_of_watched_movies(self):
-        return sum(1 for movie in self.movies if movie.watched)
+        return f"{self.title} - {self.year} ({self.category}) {'[watched]' if self.watched else ''}"
